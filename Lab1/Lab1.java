@@ -51,7 +51,12 @@ public class Lab1 {
         long endTime = System.nanoTime();
         long elapsedTime = endTime - startTime;
         System.out.println("Running time: " + elapsedTime + " nanoseconds");
+        
     }
+    
+    
+    
+    
     void compulsory() {
         System.out.println("Hello world!");
         String[] languages = {"C", "C++", "C#", "Python", "Go", "Rust", "JavaScript", "PHP", "Swift", "Java"};
