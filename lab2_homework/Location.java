@@ -67,7 +67,7 @@ public  abstract class Location {
      *
      * @return a string representation of the location
      */
-   @Override
+    @Override
     public String toString() {
         return "{" +
                 " " + name +
