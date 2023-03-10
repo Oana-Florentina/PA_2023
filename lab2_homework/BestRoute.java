@@ -44,6 +44,4 @@ public class BestRoute {
         roads.add(road);
         return true;
     }
-
-    // other methods
 }
