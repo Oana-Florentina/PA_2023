@@ -119,7 +119,12 @@ public  abstract class Location {
         return name.equals(other.name) && x == other.x && y == other.y;
     }
 
+    /**
 
+     Returns a list of roads that start at this location from the given list of roads.
+     @param roads a list of Road objects
+     @return a list of Road objects that start at this location
+     */
     public List<Road> getRoads(List<Road> roads) {
         List<Road> startingRoads = new ArrayList<Road>();
         for (Road road : roads) {

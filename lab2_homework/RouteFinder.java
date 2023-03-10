@@ -70,7 +70,12 @@ public class RouteFinder {
         // If none of the roads from the current location lead to the destination location, return false
         return false;
     }
+    /**
 
+     Prints a message indicating whether a route is possible from the starting location to the destination location.
+     @param start the starting Location object
+     @param dest the destination Location object
+     */
     public void RouteFound(Location start, Location dest) {
         if (isRoutePossible(start, dest) || isRoutePossible(dest, start)) {
             System.out.println("We found a route from " + start.getName() + " to " + dest.getName() + "!");
