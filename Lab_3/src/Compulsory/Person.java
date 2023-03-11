@@ -1,4 +1,4 @@
-package my_project;
+package Compulsory;
 
 public  class Person implements Comparable<Person>, Node {
     private String name;
