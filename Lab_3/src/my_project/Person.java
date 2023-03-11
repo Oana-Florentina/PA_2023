@@ -1,4 +1,6 @@
-public class Person {
+package my_project;
+
+public  class Person implements Comparable<Person>, Node {
     private String name;
 
     public String getName() {
@@ -11,12 +13,15 @@ public class Person {
 
     @Override
     public String toString() {
-        return "Person{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Person " +
+                "name: " + name + '\'' ;
     }
 
     public Person(String name) {
         this.name = name;
+    }
+    @Override
+    public int compareTo(Person other) {
+        return this.name.compareTo(other.getName());
     }
 }
