@@ -1,7 +1,7 @@
 package Homework;
 
-import Compulsory.Node;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -13,14 +13,24 @@ public class Lab3 {
     }
 
     public void homework() {
-        Date date1 = new Date(103, 2, 13);
-        Person name1 = new Person("Florentina", date1);
-        Programmer name2 = new Programmer("Alex", new Date(), "Java");
-        Designer  name3= new Designer("Bianca", new Date(), "Photoshop");
+        Network network = new Network();
+        Person name1 = new Person("Florentina", "13/03/2003");
+       Programmer name2 = new Programmer("Alex", "23/01/2002", "Java");
+        Designer  name3= new Designer("Bianca", "22/02/2001", "Photoshop");
         Company company1 = new Company("Amazon");
-        List<Compulsory.Node> nodesList = new ArrayList<Node>();
-        nodesList.add(name1);
-        nodesList.add(name2);
-        System.out.println("Nodes List: "+ nodesList );
+        List<Homework.Node> nodesList = new ArrayList<Node>();
+
+        name1.addRelationship(  name2, "Friends");
+        company1.addRelationship( name3, "boss");
+        company1.addRelationship( name2, "employee");
+        name1.addRelationship(  name3, "Friends");
+       network.addNode(name1);
+        network.addNode(name2);
+        network.addNode(name3);
+        network.addNode(company1);
+        List<Node> nodes = network.getNodes();
+        for (Node node : nodes) {
+            System.out.println(node.toString());
+        }
     }
 }
