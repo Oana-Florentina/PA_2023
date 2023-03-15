@@ -10,16 +10,16 @@ public class Lab3 {
     }
     public void compulsory() {
 
-        Person alice = new Person("Flory");
-        Person bob = new Person("Bianca");
-        Company acme = new Company("Yonder");
-        Company beta = new Company("Maxcode");
+        Person name1 = new Person("Flory");
+        Person name2 = new Person("Bianca");
+        Company comp1 = new Company("Yonder");
+        Company comp2 = new Company("Continental");
 
         List<Node> nodesList = new ArrayList<Node>();
-        nodesList.add(alice);
-        nodesList.add(bob);
-        nodesList.add(acme);
-        nodesList.add(beta);
+        nodesList.add(name1);
+        nodesList.add(name2);
+        nodesList.add(comp1);
+        nodesList.add(comp2);
 
         System.out.println("Nodes List: "+ nodesList );
     }
