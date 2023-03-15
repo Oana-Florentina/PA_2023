@@ -6,7 +6,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
-public  class Person implements Comparable<Homework.Person>, Node {
+public  class Person implements  Node {
     private String name;
     private LocalDate birthDate;
 
@@ -66,13 +66,24 @@ public  class Person implements Comparable<Homework.Person>, Node {
                 first = false;
             }
         }
+        for (Map.Entry<Node, String> entry : relationships.entrySet()) {
+            Node node = entry.getKey();
+            String relationshipType = entry.getValue();
+            if (node instanceof Company) {
+                if (!first) {
+                    sb.append(", ");
+                }
+                sb.append(((Company) node).getName());
+                sb.append(" (");
+                sb.append(relationshipType);
+                sb.append(")");
+                first = false;
+            }
+        }
         sb.append("]");
         return sb.toString();
     }
-    @Override
-    public int compareTo(Person other) {
-        return this.name.compareTo(other.getName());
-    }
+
 
     @Override
     public int getImportance() {

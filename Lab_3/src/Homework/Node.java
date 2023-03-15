@@ -2,7 +2,7 @@ package Homework;
 
 import java.util.Map;
 
-public interface Node {
+public interface Node extends Comparable<Node>{
     public String getName();
     int computeImportance();
 
@@ -12,4 +12,8 @@ public interface Node {
 
 
     int getImportance();
+    @Override
+    default int compareTo(Node other) {
+        return Integer.compare(this.computeImportance(), other.computeImportance());
+    }
 }
