@@ -1,21 +1,17 @@
 package org.compulsory;
 
-import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.TreeSet;
+import java.util.*;
+import java.util.stream.IntStream;
 
 public class Main {
     public static void main(String[] args) {
 
-        Student[] students = Arrays.stream(new String[]{"S0", "S1", "S2"})
-                .map(Student::new)
+        var students = IntStream.rangeClosed(0, 3)
+                .mapToObj(i -> new Student("S" + i) )
                 .toArray(Student[]::new);
-
-
-        Project[] projects = Arrays.stream(new String[]{"P0", "P1", "P2"})
-                .map(Project::new)
+        var projects = IntStream.rangeClosed(0, 3)
+                .mapToObj(i -> new Project("S" + i) )
                 .toArray(Project[]::new);
-
 
         students[0].addAdmissibleProject(projects[0]);
         students[0].addAdmissibleProject(projects[1]);
@@ -33,6 +29,7 @@ public class Main {
         System.out.println("Sorted Students:");
         studentList.forEach(student -> System.out.println(student.getName()));
 
+        
         TreeSet<Project> projectSet = new TreeSet<>(Arrays.asList(projects));
 
         System.out.println("Sorted Projects:");
