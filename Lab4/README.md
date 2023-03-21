@@ -25,7 +25,7 @@ The main specifications of the application are:
 
 [✅]Put all the projects in a TreeSet and print them sorted by their names.
 ## Homework
-[]Create a class that describes the problem.
+[✅]Create a class that describes the problem.
 
 []Using Java Stream API, write a query that display all the students that have a number of preferences lower than the average number of preferences.
 
