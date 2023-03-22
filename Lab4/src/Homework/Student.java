@@ -5,6 +5,7 @@ package homework;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Student implements Comparable<Student> {
     private String name;
@@ -38,5 +39,23 @@ public class Student implements Comparable<Student> {
             }
         }
         return false;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) {
+            return true;
+        }
+        if (!(obj instanceof Student)) {
+            return false;
+        }
+        Student other = (Student) obj;
+        return Objects.equals(this.name, other.getName()) &&
+                Objects.equals(this.admissibleProjects, other.getAdmissibleProjects());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.name, this.admissibleProjects);
     }
 }

@@ -1,13 +1,15 @@
 package homework;
 import java.util.*;
+import java.util.stream.Collectors;
+import com.github.javafaker.Faker;
+
 public class StudentProjectAllocationProblem {
 
     private List<Student> students;
     private Set<Project> projects;
 
-    public StudentProjectAllocationProblem(List<Student> students, Set<Project> projects) {
-        this.students = students;
-        this.projects = projects;
+    public StudentProjectAllocationProblem(int numStudents, int numProjects) {
+       generateRandomNames(numStudents,numProjects);
     }
 
     public List<Student> getStudents() {
@@ -17,7 +19,27 @@ public class StudentProjectAllocationProblem {
     public Set<Project> getProjects() {
         return projects;
     }
+    public void generateRandomNames(int numStudents, int numProjects) {
+        Faker faker = new Faker();
 
+        // Generate random names for students
+        List<Student> newStudents = new ArrayList<>();
+        for (int i = 0; i < numStudents; i++) {
+            String name = faker.name().fullName();
+            Student student = new Student(name);
+            newStudents.add(student);
+        }
+        students = newStudents;
+
+        // Generate random names for projects
+        Set<Project> newProjects = new HashSet<>();
+        for (int i = 0; i < numProjects; i++) {
+            String name = faker.harryPotter().spell();
+            Project project = new Project(name);
+            newProjects.add(project);
+        }
+        projects = newProjects;
+    }
     public Set<Project> getAdmissibleProjectsForStudent(Student student) {
         Set<Project> admissibleProjects = new HashSet<>();
         for (Project project : projects) {
@@ -37,7 +59,18 @@ public class StudentProjectAllocationProblem {
         }
         return admissibleStudents;
     }
+    public List<Student> findStudentsWithFewerPreferences() {
+        int numPreferencesSum = students.stream()
+                .mapToInt(student -> student.getAdmissibleProjects().size())
+                .sum();
+        double numPreferencesAvg = numPreferencesSum / (double) students.size();
 
+        List<Student> studentsWithFewerPreferences = students.stream()
+                .filter(student -> student.getAdmissibleProjects().size() < numPreferencesAvg)
+                .collect(Collectors.toList());
+
+        return studentsWithFewerPreferences;
+    }
     public Set<Pair<Student, Project>> findMaximumMatching() {
         // TODO: implement maximum matching algorithm
         return null;
