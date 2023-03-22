@@ -40,6 +40,26 @@ public class StudentProjectAllocationProblem {
         }
         projects = newProjects;
     }
+    public Set<Pair<Student, Project>> findMaximumMatching(List<Student> students,Set<Project> projects) {
+        Set<Pair<Student, Project>> matching = new HashSet<>();
+        List<Student> sortedStudents = students.stream()
+                .sorted(Comparator.comparingInt(student -> -student.getAdmissibleProjects().size()))
+                .collect(Collectors.toList());
+
+        Set<Project> assignedProjects = new HashSet<>();
+
+        for (Student student : sortedStudents) {
+            for (Project project : student.getAdmissibleProjects()) {
+                if (!assignedProjects.contains(project)) {
+                    matching.add(new Pair<>(student, project));
+                    assignedProjects.add(project);
+                    break;
+                }
+            }
+        }
+
+        return matching;
+    }
     public Set<Project> getAdmissibleProjectsForStudent(Student student) {
         Set<Project> admissibleProjects = new HashSet<>();
         for (Project project : projects) {
@@ -71,9 +91,6 @@ public class StudentProjectAllocationProblem {
 
         return studentsWithFewerPreferences;
     }
-    public Set<Pair<Student, Project>> findMaximumMatching() {
-        // TODO: implement maximum matching algorithm
-        return null;
-    }
+
 
 }
