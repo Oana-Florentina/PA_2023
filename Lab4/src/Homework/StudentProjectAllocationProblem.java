@@ -1,58 +1,57 @@
 package homework;
 import java.util.*;
 import java.util.stream.Collectors;
-import com.github.javafaker.Faker;
 
 public class StudentProjectAllocationProblem {
 
     private List<Student> students;
     private Set<Project> projects;
+    private Set<Pair<Student, Project>> matchings;
 
-    public StudentProjectAllocationProblem(int numStudents, int numProjects) {
-       generateRandomNames(numStudents,numProjects);
+    public StudentProjectAllocationProblem(List<Student> students, Set<Project> projects) {
+        this.students = students;
+        this.projects = projects;
+        this.matchings = new HashSet<>();
+
     }
+
 
     public List<Student> getStudents() {
         return students;
     }
 
-    public Set<Project> getProjects() {
-        return projects;
-    }
-    public void generateRandomNames(int numStudents, int numProjects) {
-        Faker faker = new Faker();
-
-        // Generate random names for students
-        List<Student> newStudents = new ArrayList<>();
-        for (int i = 0; i < numStudents; i++) {
-            String name = faker.name().fullName();
-            Student student = new Student(name);
-            newStudents.add(student);
+    public void getProjects() {
+        System.out.println("Projects: ");
+        for (Project project : projects) {
+            System.out.println(project.getName());
         }
-        students = newStudents;
-
-        // Generate random names for projects
-        Set<Project> newProjects = new HashSet<>();
-        for (int i = 0; i < numProjects; i++) {
-            String name = faker.harryPotter().spell();
-            Project project = new Project(name);
-            newProjects.add(project);
-        }
-        projects = newProjects;
     }
-    public Set<Pair<Student, Project>> findMaximumMatching(List<Student> students,Set<Project> projects) {
+
+    public void addMatching(Student student, Project project) {
+        Pair<Student, Project> pair = new Pair<>(student, project);
+        matchings.add(pair);
+        student.addAdmissibleProject(project);
+    }
+
+    public void getMatching() {
+        for (Student student : students) {
+            student.getMatching(matchings);
+        }
+    }
+
+    public Set<Pair<Student, Project>> findMaximumMatchingGreedy(List<Student> students, TreeSet<Project> projects) {
         Set<Pair<Student, Project>> matching = new HashSet<>();
+
+        // we need to sort students by decreasing order of admissible projects
         List<Student> sortedStudents = students.stream()
                 .sorted(Comparator.comparingInt(student -> -student.getAdmissibleProjects().size()))
                 .collect(Collectors.toList());
 
-        Set<Project> assignedProjects = new HashSet<>();
-
         for (Student student : sortedStudents) {
-            for (Project project : student.getAdmissibleProjects()) {
-                if (!assignedProjects.contains(project)) {
+            for (Project project : projects) {// if a preferred project is still available, we assign it to the student
+                if (project.isAdmissibleStudent(student)) {
                     matching.add(new Pair<>(student, project));
-                    assignedProjects.add(project);
+                    projects.remove(project);
                     break;
                 }
             }
@@ -60,6 +59,7 @@ public class StudentProjectAllocationProblem {
 
         return matching;
     }
+
     public Set<Project> getAdmissibleProjectsForStudent(Student student) {
         Set<Project> admissibleProjects = new HashSet<>();
         for (Project project : projects) {
@@ -70,27 +70,28 @@ public class StudentProjectAllocationProblem {
         return admissibleProjects;
     }
 
-    public Set<Student> getAdmissibleStudentsForProject(Project project) {
-        Set<Student> admissibleStudents = new HashSet<>();
+    public void getAdmissibleProjectList() {
         for (Student student : students) {
-            if (project.isAdmissibleStudent(student)) {
-                admissibleStudents.add(student);
+            Set<Project> admissibleProjects = getAdmissibleProjectsForStudent(student);
+            System.out.println("Admissible projects for " + student.getName() + ":");
+            for (Project project : admissibleProjects) {
+                System.out.println("\t" + project.getName());
             }
         }
-        return admissibleStudents;
     }
-    public List<Student> findStudentsWithFewerPreferences() {
-        int numPreferencesSum = students.stream()
+
+    public void findStudentsWithFewerPreferences() {
+        double numPreferencesAvg = students.stream()
                 .mapToInt(student -> student.getAdmissibleProjects().size())
-                .sum();
-        double numPreferencesAvg = numPreferencesSum / (double) students.size();
+                .average()
+                .orElse(0);
 
         List<Student> studentsWithFewerPreferences = students.stream()
                 .filter(student -> student.getAdmissibleProjects().size() < numPreferencesAvg)
                 .collect(Collectors.toList());
 
-        return studentsWithFewerPreferences;
+        System.out.println("Students with fewer preferences than average:");
+        studentsWithFewerPreferences.forEach(student -> System.out.println(student.getName()));
     }
-
 
 }

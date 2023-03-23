@@ -1,43 +1,64 @@
 package homework;
-import com.github.javafaker.Faker;
 import java.util.*;
-import java.util.stream.IntStream;
+
 
 public class Main {
     public static void main(String[] args) {
-        StudentProjectAllocationProblem problem = new StudentProjectAllocationProblem(5,8);
-        TreeSet<Project> projectSet = new TreeSet<>(Arrays.asList(problem.getProjects().toArray(new Project[0])));
+
+        List<Student> students = new ArrayList<>();
+        TreeSet<Project> projects = new TreeSet<>();
+        StudentProjectAllocationProblem problem = new StudentProjectAllocationProblem(students, projects);
+
+        Student student0 = new Student();
+        students.add(student0);
+        Student student1 = new Student();
+        students.add(student1);
+        Student student2 = new Student();
+        students.add(student2);
+
+        Project project0 = new Project();
+        projects.add(project0);
+        Project project1 = new Project();
+        projects.add(project1);
+        Project project2 = new Project();
+        projects.add(project2);
+        Project project3 = new Project();
+        projects.add(project3);
 
 
-        LinkedList<Student> studentList = new LinkedList<>(problem.getStudents());
-
-        System.out.println("Students:");
-        studentList.forEach(student -> System.out.println(student.getName()));
-
-        System.out.println("Projects:");
-        projectSet.forEach(project -> System.out.println(project.getName()));
-
-
-        List<Student> students = problem.getStudents();
-
-        students.get(0).addAdmissibleProject(projectSet.ceiling(new Project("Project 3")));
-        students.get(0).addAdmissibleProject(projectSet.ceiling(new Project("Project 4")));
-        students.get(1).addAdmissibleProject(projectSet.ceiling(new Project("Project 3")));
-        students.get(1).addAdmissibleProject(projectSet.ceiling(new Project("Project 4")));
-        students.get(1).addAdmissibleProject(projectSet.ceiling(new Project("Project 5")));
-        students.get(1).addAdmissibleProject(projectSet.ceiling(new Project("Project 6")));
-        students.get(2).addAdmissibleProject(projectSet.ceiling(new Project("Project 1")));
-        students.get(2).addAdmissibleProject(projectSet.ceiling(new Project("Project 4")));
-
-        List<Student> studentsWithFewerPreferences = problem.findStudentsWithFewerPreferences();
-        System.out.println("Students with fewer preferences than the average:");
-        studentsWithFewerPreferences.forEach(student -> System.out.println(student.getName()));
-        Set<Pair<Student, Project>> matching= problem.findMaximumMatching(students,projectSet);
-        // Print the matching
-        System.out.println("Matchings:");
-        for (Pair<Student, Project> pair : matching) {
-            System.out.println(pair.getFirst().getName() + " is assigned to project " + pair.getSecond().getName());
+        System.out.println("Students: ");
+        for (Student student : students) {
+            System.out.println(student.getName());
         }
+
+        Set<Pair<Student, Project>> matching = problem.findMaximumMatchingGreedy(students, projects);
+
+        matching.add(new Pair<>(student1, project1));
+        problem.addMatching(student1, project1);
+
+        matching.add(new Pair<>(student1, project0));
+        problem.addMatching(student1, project0);
+
+        matching.add(new Pair<>(student0, project0));
+        problem.addMatching(student0, project0);
+
+        matching.add(new Pair<>(student0, project1));
+        problem.addMatching(student0, project1);
+
+        matching.add(new Pair<>(student0, project2));
+        problem.addMatching(student0, project2);
+
+        matching.add(new Pair<>(student2, project2));
+        problem.addMatching(student2, project2);
+
+
         System.out.println("Matching size: " + matching.size());
+
+
+        problem.getMatching();
+        problem.getProjects();
+        problem.getAdmissibleProjectList();
+        problem.findStudentsWithFewerPreferences();
     }
+
 }
