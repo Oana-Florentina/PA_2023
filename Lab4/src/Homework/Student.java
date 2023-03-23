@@ -57,4 +57,5 @@ public class Student implements Comparable<Student> {
                 Objects.equals(this.admissibleProjects, other.getAdmissibleProjects());
     }
 
+
 }

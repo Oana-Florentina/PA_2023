@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 public class StudentProjectAllocationProblem {
 
     private List<Student> students;
+
     private Set<Project> projects;
     private Set<Pair<Student, Project>> matchings;
 
@@ -14,6 +15,7 @@ public class StudentProjectAllocationProblem {
         this.matchings = new HashSet<>();
 
     }
+
 
 
     public List<Student> getStudents() {
@@ -41,17 +43,18 @@ public class StudentProjectAllocationProblem {
 
     public Set<Pair<Student, Project>> findMaximumMatchingGreedy(List<Student> students, TreeSet<Project> projects) {
         Set<Pair<Student, Project>> matching = new HashSet<>();
+        Set<Project> assignedProjects = new HashSet<>();
 
-        // we need to sort students by decreasing order of admissible projects
         List<Student> sortedStudents = students.stream()
                 .sorted(Comparator.comparingInt(student -> -student.getAdmissibleProjects().size()))
                 .collect(Collectors.toList());
 
         for (Student student : sortedStudents) {
-            for (Project project : projects) {// if a preferred project is still available, we assign it to the student
-                if (project.isAdmissibleStudent(student)) {
+            for (Project project : projects) {
+                if (!assignedProjects.contains(project) && project.isAdmissibleStudent(student)) {
                     matching.add(new Pair<>(student, project));
-                    projects.remove(project);
+                    addMatching(student, project);
+                    assignedProjects.add(project);
                     break;
                 }
             }
@@ -59,7 +62,16 @@ public class StudentProjectAllocationProblem {
 
         return matching;
     }
-
+    public  String pairSetToString(Set<Pair<Student, Project>> pairSet) {
+        StringBuilder sb = new StringBuilder();
+        for (Pair<Student, Project> pair : pairSet) {
+            sb.append(pair.getFirst().getName())
+                    .append(" - ")
+                    .append(pair.getSecond().getName())
+                    .append("\n");
+        }
+        return sb.toString();
+    }
     public Set<Project> getAdmissibleProjectsForStudent(Student student) {
         Set<Project> admissibleProjects = new HashSet<>();
         for (Project project : projects) {

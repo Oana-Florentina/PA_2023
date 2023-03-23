@@ -1,5 +1,6 @@
 package homework;
 import java.util.*;
+import java.util.stream.IntStream;
 
 
 public class Main {
@@ -25,40 +26,44 @@ public class Main {
         Project project3 = new Project();
         projects.add(project3);
 
-
         System.out.println("Students: ");
         for (Student student : students) {
             System.out.println(student.getName());
         }
 
-        Set<Pair<Student, Project>> matching = problem.findMaximumMatchingGreedy(students, projects);
 
-        matching.add(new Pair<>(student1, project1));
-        problem.addMatching(student1, project1);
+        student0.addAdmissibleProject(project0);
+        student0.addAdmissibleProject(project1);
+        student0.addAdmissibleProject(project2);
 
-        matching.add(new Pair<>(student1, project0));
-        problem.addMatching(student1, project0);
+        student1.addAdmissibleProject(project0);
+        student1.addAdmissibleProject(project1);
 
-        matching.add(new Pair<>(student0, project0));
-        problem.addMatching(student0, project0);
-
-        matching.add(new Pair<>(student0, project1));
-        problem.addMatching(student0, project1);
-
-        matching.add(new Pair<>(student0, project2));
-        problem.addMatching(student0, project2);
-
-        matching.add(new Pair<>(student2, project2));
-        problem.addMatching(student2, project2);
+        student2.addAdmissibleProject(project0);
 
 
-        System.out.println("Matching size: " + matching.size());
+        project0.addAdmissibleStudent(student0);
+        project0.addAdmissibleStudent(student1);
+        project0.addAdmissibleStudent(student2);
 
+        project1.addAdmissibleStudent(student1);
+        project1.addAdmissibleStudent(student0);
 
-        problem.getMatching();
-        problem.getProjects();
+        project2.addAdmissibleStudent(student0);
+
         problem.getAdmissibleProjectList();
         problem.findStudentsWithFewerPreferences();
+        problem.getProjects();
+
+        Set<Pair<Student, Project>> matching = problem.findMaximumMatchingGreedy(students, projects);
+        System.out.println("Matching size: " + matching.size());
+
+        String output = problem.pairSetToString(matching);
+        System.out.println(output);
+
+
+
+
     }
 
 }

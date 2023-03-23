@@ -1,7 +1,5 @@
 package homework;
-
 import com.github.javafaker.Faker;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -22,6 +20,11 @@ public class Project implements Comparable<Project> {
         return name;
     }
 
+    public List<Student> getAdmissibleStudents() {
+        return admissibleStudents;
+    }
+
+
     public boolean isAdmissibleStudent(Student student) {
         for (Student admissibleStudent : admissibleStudents) {
             if (admissibleStudent.equals(student)) {
@@ -30,15 +33,16 @@ public class Project implements Comparable<Project> {
         }
         return false;
     }
-
     @Override
     public int compareTo(Project other) {
         return this.name.compareTo(other.getName());
     }
-
     @Override
     public int hashCode() {
         return Objects.hash(this.name);
     }
 
+    public void addAdmissibleStudent(Student student) {
+        admissibleStudents.add(student);
+    }
 }
