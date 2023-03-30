@@ -1,20 +1,14 @@
 package homework;
-
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import homework.Catalog;
-import homework.Document;
-import homework.DocumentAlreadyExistsException;
-import homework.InvalidDocumentException;
-
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 
-
 public class DocumentManagementSystem {
     public static void main(String[] args) {
         homework.CatalogManager manager = new homework.CatalogManager();
+        ReportCommand report = new ReportCommand();
 
         try {
             Map<String, String> tags = new HashMap<>();
@@ -36,5 +30,6 @@ public class DocumentManagementSystem {
         } catch (InvalidDocumentException e) {
             System.err.println("Error adding document: " + e.getMessage());
         }
+
     }
 }

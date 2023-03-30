@@ -1,19 +1,18 @@
 package homework;
+/**
 
-import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Map;
-
+ This class represents the command to add a document to a catalog.
+ */
 public class AddCommand implements Command {
     private Catalog catalog;
     private Document document;
 
     /**
-     * constructor method, initialize the catalog and document
-     *
-     * @param catalog  where a document will be added
-     * @param document the document to be added
+
+     Constructor for the AddCommand class.
+     Initializes the catalog and document.
+     @param catalog the catalog where a document will be added
+     @param document the document to be added
      */
     public AddCommand(Catalog catalog, Document document) {
         this.catalog = catalog;
@@ -21,7 +20,9 @@ public class AddCommand implements Command {
     }
 
     /**
-     * when called, it adds the document in the current catalog
+
+     Adds the document to the current catalog.
+     @throws DocumentAlreadyExistsException if the document already exists in the catalog
      */
     @Override
     public void execute() throws DocumentAlreadyExistsException {

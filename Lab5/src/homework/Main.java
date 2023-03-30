@@ -1,9 +1,7 @@
 package homework;
-
 import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
-
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -57,12 +55,16 @@ public class Main {
                 } else {
                     throw new IllegalArgumentException("Invalid command");
                 }
-            } catch (DocumentAlreadyExistsException | IOException | TemplateException | IllegalArgumentException |
-                     InvalidCommandArgumentException e) {
+            } catch (Exception e) {
                 System.out.println("Error: " + e.getMessage());
             }
         }
-
+        ReportCommand report = new ReportCommand();
+        try {
+            report.execute();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
         scanner.close();
     }
 }

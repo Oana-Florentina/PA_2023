@@ -1,12 +1,16 @@
 package homework;
-
-import java.awt.Desktop;
-import java.io.File;
-import java.io.FileWriter;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
-
+/**
+ * Interface for commands that can be executed by the application.
+ */
 interface Command {
-    void execute() throws IOException, InvalidCommandArgumentException, DocumentAlreadyExistsException;
+
+    /**
+     * Executes the command.
+     *
+     * @throws IOException if there is an I/O error.
+     * @throws InvalidCommandArgumentException if the command argument is invalid.
+     * @throws DocumentAlreadyExistsException if a document with the same ID already exists in the catalog.
+     */
+    void execute() throws Exception;
 }
