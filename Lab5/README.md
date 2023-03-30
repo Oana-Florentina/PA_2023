@@ -35,5 +35,5 @@ Use a template engine such as FreeMarker or Velocity, in order to create the HTM
 
 [✅]The application will signal invalid data or the commands that are not valid using custom exceptions.
 
-[]The final form of the application will be an executable JAR archive. Identify the generated archive and launch the application from the console, using the JAR.
+[✅]The final form of the application will be an executable JAR archive. Identify the generated archive and launch the application from the console, using the JAR.
 
