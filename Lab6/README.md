@@ -36,5 +36,5 @@ The main frame of the application.
 
 ## Authors
 
-- [@octokatherine](https://github.com/Oana-Florentina)
+- [@Oana-Florentina](https://github.com/Oana-Florentina)
 
