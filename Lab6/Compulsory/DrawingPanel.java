@@ -6,8 +6,8 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 /**
-
-A JPanel class that creates and displays a graph with random edges and vertices on it.
+*
+*A JPanel class that creates and displays a graph with random edges and vertices on it.
 */
 public class DrawingPanel extends JPanel {
     final MainFrame frame;
