@@ -12,7 +12,11 @@ public class ConfigPanel extends JPanel {
     JSpinner dotsSpinner;
     JComboBox<Object> linesCombo;
     JButton createButton;
-
+/**
+ * Creates a new instance of ConfigPanel.
+ *
+ * @param frame the reference to the MainFrame instance
+ */
     public ConfigPanel(MainFrame frame) {
         this.frame = frame;
         init();
@@ -30,6 +34,9 @@ public class ConfigPanel extends JPanel {
             frame.drawingPanel.createBoard();
         }
     };
+    /**
+ * Initializes the components of the panel and adds them to the panel.
+ */
     private void init() {
         //create the label and the spinner
         dotsLabel = new JLabel("Number of dots:");
