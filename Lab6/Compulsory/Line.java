@@ -1,8 +1,8 @@
 package Homework;
 import java.awt.*;
 /**
-
-Class that represents a line connecting two dots.
+*
+*Class that represents a line connecting two dots.
 */
 public class Line {
     private Dot dot1;
