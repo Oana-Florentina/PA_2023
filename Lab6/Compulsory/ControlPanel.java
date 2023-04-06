@@ -7,7 +7,9 @@ import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
-
+/**
+ * A JPanel that displays buttons for controlling the game, such as loading, saving, resetting and exiting the game.
+ */
 public class ControlPanel extends JPanel {
     final MainFrame frame;
     JButton exitButton = new JButton("Exit");
@@ -15,11 +17,18 @@ public class ControlPanel extends JPanel {
     JButton saveButton = new JButton("Save");
     JButton resetButton = new JButton("Reset");
 
+     /**
+     * Constructs a new ControlPanel object with a reference to the MainFrame object.
+     *
+     * @param frame The MainFrame object to which this ControlPanel belongs.
+     */
     public ControlPanel(MainFrame frame) {
         this.frame = frame;
         init();
     }
-
+    /**
+     * Initializes the control panel with buttons for loading, saving, resetting and exiting the game.
+     */
     private void init() {
 
         setLayout(new GridLayout(1, 4));
