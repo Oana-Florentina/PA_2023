@@ -25,7 +25,8 @@ The main frame of the application.
 
 ✅ 
 ## Homework
-[]Create the object oriented model of the game. Consider implementing a retained mode for drawing the game board.
+Not complete
+[✅]Create the object oriented model of the game. Consider implementing a retained mode for drawing the game board.
 
 []Implement the logic of the game. Use a mouse listener in order to select the line which must be colored, either by selecting the dots or the line itself. Validate the moves, according to the game rules. Determine the winner of the game.
 
