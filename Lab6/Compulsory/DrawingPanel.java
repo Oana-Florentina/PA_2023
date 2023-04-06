@@ -5,7 +5,10 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+/**
 
+A JPanel class that creates and displays a graph with random edges and vertices on it.
+*/
 public class DrawingPanel extends JPanel {
     final MainFrame frame;
     final static int W = 1300, H = 750;
@@ -14,7 +17,11 @@ public class DrawingPanel extends JPanel {
     private int[] x, y;
     BufferedImage image;
     Graphics2D graphics;
-
+   /**
+ * Constructor of DrawingPanel class that initializes a new instance with specified MainFrame object.
+ *
+ * @param frame the MainFrame object
+ */
     public DrawingPanel(MainFrame frame) {
         this.frame = frame;
         createOffscreenImage();
@@ -81,7 +88,9 @@ public class DrawingPanel extends JPanel {
             }
         }
     }
-
+/**
+ * Draws the vertices on the board.
+ */
     private void drawVertices() {
         for (int i = 0; i < numVertices; i++) {
             graphics.fillOval(x[i] - 5, y[i] - 5, 10, 10);
