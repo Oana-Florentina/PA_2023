@@ -1,13 +1,20 @@
 package compulsory;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import java.util.List;
+import java.util.ArrayList;
 
 public class Supervisor {
     private List<Robot> robots;
+    private int[][] sharedMemory;
+    private Map map;
 
-    public Supervisor(List<Robot> robots) {
+    public Supervisor(List<Robot> robots, int[][] sharedMemory, Map map) {
         this.robots = robots;
+        this.sharedMemory = sharedMemory;
+        this.map = map;
     }
 
     public void startAll() {
@@ -22,30 +29,34 @@ public class Supervisor {
         }
     }
 
-    public void start(Robot robot) {
-        // TODO: start the given robot
+    private void start(Robot robot) {
+        Thread thread = new Thread(() -> {
+            while (!isDone()) {
+                synchronized (robot) {
+                    robot.move();
+                    int row = robot.getCurrentRow();
+                    int col = robot.getCurrentCol();
+                    if (!map.isVisited(row, col)) {
+                        map.markVisited(row, col);
+                        System.out.println(robot.getName() + " visited cell (" + row + ", " + col + ")");
+                        robot.extractTokens();
+                    }
+                }
+            }
+        });
+        thread.start();
     }
 
-    public void pause(Robot robot) {
-        // TODO: pause the given robot
+    private void pause(Robot robot) {
+        // To be implemented
     }
 
-    public boolean isDone() {
-        // Check if all cells on the map have been visited
+    private boolean isDone() {
         for (Robot robot : robots) {
             if (!robot.isDone()) {
                 return false;
             }
         }
         return true;
-    }
-
-    public void run() {
-        // Start all robots and wait until they are done exploring the map
-        startAll();
-        while (!isDone()) {
-            // TODO: Implement some kind of waiting or sleeping mechanism here, so that the supervisor thread doesn't busy-wait
-        }
-        pauseAll();
     }
 }

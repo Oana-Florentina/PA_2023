@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public class Robot {
+public class Robot implements Runnable {
+    private String name;
     private int id;
     private int[][] map;
     private boolean[][] visited;
@@ -13,7 +14,8 @@ public class Robot {
     private List<Integer> tokens;
     private Random rand;
 
-    public Robot(int id, int[][] map, boolean[][] visited, int n, int[][] sharedMemory) {
+    public Robot(String name, int id, int[][] map, boolean[][] visited, int n, int[][] sharedMemory) {
+        this.name = name;
         this.id = id;
         this.map = map;
         this.visited = visited;
@@ -35,8 +37,19 @@ public class Robot {
             }
         }
     }
+
+    @Override
+    public void run() {
+        while (!isDone()) {
+            move();
+            if (!isDone()) {
+                extractTokens();
+            }
+        }
+    }
+
     public boolean isDone() {
-        // Check if there are any unvisited cells left in the map
+        // Check if all cells have been visited
         for (int row = 0; row < map.length; row++) {
             for (int col = 0; col < map[0].length; col++) {
                 if (!visited[row][col]) {
@@ -60,6 +73,7 @@ public class Robot {
         if (newRow >= 0 && newRow < map.length && newCol >= 0 && newCol < map[0].length && !visited[newRow][newCol]) {
             currentRow = newRow;
             currentCol = newCol;
+            System.out.println(name + " visited cell [" + currentRow + ", " + currentCol + "]");
         }
     }
 
@@ -67,8 +81,23 @@ public class Robot {
         // Extract n tokens from shared memory and store them in the current position on the map
         int numTokens = tokens.size();
         for (int i = 0; i < numTokens; i++) {
-            map[currentRow][currentCol] = tokens.remove(0);
+            synchronized (map) {
+                map[currentRow][currentCol] = tokens.remove(0);
+            }
         }
-        visited[currentRow][currentCol] = true;
+        synchronized (visited) {
+            visited[currentRow][currentCol] = true;
+        }
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public int getCurrentRow() {
+        return this.currentRow;
+    }
+    public int getCurrentCol() {
+        return this.currentCol;
     }
 }
