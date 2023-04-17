@@ -3,7 +3,9 @@ package compulsory;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-
+/**
+ * The Map class represents the layout of the grid that the robots will traverse.
+ */
 public class Robot implements Runnable {
     private String name;
     private int id;
@@ -21,6 +23,15 @@ public class Robot implements Runnable {
     public void setThread(Thread thread) {
         this.thread = thread;
     }
+    /**
+     * Constructs a new Robot object with the given name, ID, map, visited cell tracker, grid size, and shared memory.
+     * @param name The name of the robot.
+     * @param id The ID of the robot.
+     * @param map The layout of the grid.
+     * @param visited The 2D array keeping track of which cells have been visited.
+     * @param n The size of the grid.
+     * @param sharedMemory The shared memory containing the tokens.
+     */
     public Robot(String name, int id, int[][] map, boolean[][] visited, int n, int[][] sharedMemory) {
         this.name = name;
         this.id = id;
@@ -55,6 +66,7 @@ public class Robot implements Runnable {
         }
     }
 
+
     public boolean isDone() {
         // Check if all cells have been visited and all tokens have been extracted
         for (int row = 0; row < map.length; row++) {
@@ -64,11 +76,12 @@ public class Robot implements Runnable {
                 }
             }
         }
+
         return true;
     }
 
     public void move() {
-        // Move the robot in a random direction, as long as it doesn't go out of bounds or into a visited cell
+        // Move the robot in a random direction, as long as it doesn't go out or into a visited cell
         int[] rowOffsets = {-1, 0, 1, 0};
         int[] colOffsets = {0, 1, 0, -1};
         int numDirections = 4;
@@ -83,7 +96,10 @@ public class Robot implements Runnable {
            // System.out.println(name + " visited cell [" + currentRow + ", " + currentCol + "]");
         }
     }
-
+    /**
+     * updates the state of the map and visited cells by extracting tokens
+     * from shared memory and storing them in the current position of the robot.
+     */
     public void extractTokens() {
         // Extract n tokens from shared memory and store them in the current position on the map
         int numTokens = tokens.size();

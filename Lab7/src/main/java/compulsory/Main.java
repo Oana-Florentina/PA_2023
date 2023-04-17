@@ -1,15 +1,14 @@
 package compulsory;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
         // Initialize parameters
         int n = 3;  // Map size
-        int numRobots = 4;  // Number of robots
-        int numTokens = 5;  // Number of tokens per robot
+        int numRobots = 2;  // Number of robots
+        int numTokens = n;  // Number of tokens per robot
 
         // Create shared memory
         int[][] sharedMemory = new int[n][n];
@@ -34,6 +33,7 @@ public class Main {
 
         // Start robots
         supervisor.startAll();
+
     }
 
 }

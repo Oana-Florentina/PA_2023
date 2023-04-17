@@ -1,13 +1,22 @@
 package compulsory;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
 
+/**
+ * The Map class represents an n x n square matrix, each cell being an individual location of the map.
+ */
 public class Map {
+    /**
+     * The size of the map (n x n).
+     */
     private int n;
     private int[][] map;
     private boolean[][] visited;
-
+    /**
+     * Constructs a new Map object with the specified size.
+     *
+     * @param n the size of the map (n x n)
+     */
     public Map(int n) {
         this.n = n;
         this.map = new int[n][n];
