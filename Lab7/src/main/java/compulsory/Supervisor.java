@@ -50,7 +50,6 @@ public class Supervisor {
                     if (!map.isVisited(row, col)) {
                         map.markVisited(row, col);
                        System.out.println(robot.getName() + " visited cell (" + row + ", " + col + ")");
-
                         robot.extractTokens();
 
                         try {
@@ -82,6 +81,7 @@ public class Supervisor {
             }
         }
         System.out.println("All robots are done");
+        map.printMap();
 
         return true;
     }

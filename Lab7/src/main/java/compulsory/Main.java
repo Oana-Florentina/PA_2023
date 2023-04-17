@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         // Initialize parameters
         int n = 3;  // Map size
-        int numRobots = 2;  // Number of robots
+        int numRobots = 3;  // Number of robots
         int numTokens = n;  // Number of tokens per robot
 
         // Create shared memory
@@ -34,7 +34,6 @@ public class Main {
 
         // Start robots
         supervisor.startAll();
-
 
     }
 

@@ -9,6 +9,7 @@ import java.util.Random;
  */
 public class Robot implements Runnable {
     private String name;
+    int n;
     private int id;
     private int[][] map;
     private boolean[][] visited;
@@ -39,12 +40,13 @@ public class Robot implements Runnable {
         this.map = map;
         this.visited = visited;
         this.tokens = new ArrayList<>();
+        this.n=n;
         this.rand = new Random();
         // Randomly initialize starting position
         this.currentRow = rand.nextInt(n);
         this.currentCol = rand.nextInt(n);
         // Extract n tokens from shared memory and store them in the robot's token list
-        int numTokens = n;
+        int numTokens = n*n;
         while (numTokens > 0) {
             int tokenIndex = rand.nextInt(n*n);
             int tokenValue = sharedMemory[tokenIndex / n][tokenIndex % n];
@@ -67,10 +69,8 @@ public class Robot implements Runnable {
                     throw new RuntimeException(e);
                 }
             }
-
         }
-        if(isDone())
-            System.out.println("donee");
+
     }
 
 
@@ -115,7 +115,8 @@ public class Robot implements Runnable {
      */
     public void extractTokens() {
         // Extract n tokens from shared memory and store them in the current position on the map
-        int numTokens = tokens.size();
+        int numTokens = n;
+
         for (int i = 0; i < numTokens; i++) {
             int tokenValue = tokens.remove(0);
             synchronized (map) {
