@@ -1,6 +1,7 @@
 package compulsory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -20,11 +21,11 @@ public class Main {
 
         // Create map
         Map map = new Map(n);
-
+        boolean visited[][]= new boolean[n][n];
         // Create robots
         List<Robot> robots = new ArrayList<>();
         for (int i = 0; i < numRobots; i++) {
-            Robot robot = new Robot("Robot" + (i+1), i+1, map.getMap(), new boolean[n][n], n, sharedMemory);
+            Robot robot = new Robot("Robot" + (i+1), i+1, map.getMap(), visited, n, sharedMemory);
             robots.add(robot);
         }
 
@@ -33,6 +34,7 @@ public class Main {
 
         // Start robots
         supervisor.startAll();
+
 
     }
 

@@ -1,4 +1,5 @@
 package compulsory;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -41,37 +42,51 @@ public class Supervisor {
      */
     private void start(Robot robot) {
         Thread thread = new Thread(() -> {
-            while (!isDonee()) {
+            while (!isDone()) {
                 synchronized (robot) {
                     robot.move();
                     int row = robot.getCurrentRow();
                     int col = robot.getCurrentCol();
                     if (!map.isVisited(row, col)) {
                         map.markVisited(row, col);
-                        System.out.println(robot.getName() + " visited cell (" + row + ", " + col + ")");
+                       System.out.println(robot.getName() + " visited cell (" + row + ", " + col + ")");
+
                         robot.extractTokens();
+
+                        try {
+                            Thread.sleep(1000);
+                            // sleep for 1 second
+                        } catch (InterruptedException e) {
+                            e.printStackTrace();
+                        }
+
                     }
+
                 }
             }
         });
         robot.setThread(thread);
         thread.start();
-
     }
+
 
     /**
      * Checks if all the robots have completed their tasks.
      * @return true if all robots are done, false otherwise
      */
-    private boolean isDonee() {
+    private boolean isDone() {
         for (Robot robot : robots) {
             if (!robot.isDone()) {
                 return false;
+
             }
         }
+        System.out.println("All robots are done");
 
         return true;
     }
+
+
     /**
      * Pauses the given robot's thread if it is currently running.
      * @param robot the robot to be paused

@@ -1,6 +1,7 @@
 package compulsory;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Random;
 /**
@@ -39,11 +40,9 @@ public class Robot implements Runnable {
         this.visited = visited;
         this.tokens = new ArrayList<>();
         this.rand = new Random();
-
         // Randomly initialize starting position
         this.currentRow = rand.nextInt(n);
         this.currentCol = rand.nextInt(n);
-
         // Extract n tokens from shared memory and store them in the robot's token list
         int numTokens = n;
         while (numTokens > 0) {
@@ -62,8 +61,16 @@ public class Robot implements Runnable {
             move();
             if (!isDone()) {
                 extractTokens();
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
             }
+
         }
+        if(isDone())
+            System.out.println("donee");
     }
 
 
@@ -71,31 +78,37 @@ public class Robot implements Runnable {
         // Check if all cells have been visited and all tokens have been extracted
         for (int row = 0; row < map.length; row++) {
             for (int col = 0; col < map[0].length; col++) {
-                if (!visited[row][col] || map[row][col] != 0) {
+                if (!visited[row][col] ) {
                     return false;
                 }
             }
         }
 
+
+
         return true;
     }
 
     public void move() {
-        // Move the robot in a random direction, as long as it doesn't go out or into a visited cell
-        int[] rowOffsets = {-1, 0, 1, 0};
-        int[] colOffsets = {0, 1, 0, -1};
-        int numDirections = 4;
+        // Move the robot to a random position on the map that hasn't been visited yet
+        int n = map.length;
+        int numCells = n * n;
+        int[] randomOrder = rand.ints(numCells, 0, numCells).toArray();
 
-        int direction = rand.nextInt(numDirections);
-        int newRow = currentRow + rowOffsets[direction];
-        int newCol = currentCol + colOffsets[direction];
+        for (int i = 0; i < numCells; i++) {
+            int cellIndex = randomOrder[i];
+            int row = cellIndex / n;
+            int col = cellIndex % n;
 
-        if (newRow >= 0 && newRow < map.length && newCol >= 0 && newCol < map[0].length && !visited[newRow][newCol]) {
-            currentRow = newRow;
-            currentCol = newCol;
-           // System.out.println(name + " visited cell [" + currentRow + ", " + currentCol + "]");
+            if (!visited[row][col]) {
+                currentRow = row;
+                currentCol = col;
+                // System.out.println(name + " visited cell [" + currentRow + ", " + currentCol + "]");
+                break;
+            }
         }
     }
+
     /**
      * updates the state of the map and visited cells by extracting tokens
      * from shared memory and storing them in the current position of the robot.
@@ -104,14 +117,16 @@ public class Robot implements Runnable {
         // Extract n tokens from shared memory and store them in the current position on the map
         int numTokens = tokens.size();
         for (int i = 0; i < numTokens; i++) {
+            int tokenValue = tokens.remove(0);
             synchronized (map) {
-                map[currentRow][currentCol] = tokens.remove(0);
+                map[currentRow][currentCol] = tokenValue;
             }
         }
         synchronized (visited) {
             visited[currentRow][currentCol] = true;
         }
     }
+
 
     public String getName() {
         return this.name;

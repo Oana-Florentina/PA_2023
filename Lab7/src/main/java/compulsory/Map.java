@@ -48,4 +48,29 @@ public class Map {
     public int[][] getMap() {
         return this.map;
     }
+    public void printMap() {
+        for (int row = 0; row < map.length; row++) {
+            for (int col = 0; col < map[0].length; col++) {
+                System.out.print(map[row][col] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public void addTokensToCell(int row, int col, int[] tokens) {
+        if (row >= 0 && row < n && col >= 0 && col < n && !visited[row][col]) {
+            map[row][col] += tokens.length;
+            for (int i = 0; i < tokens.length; i++) {
+                int token = tokens[i];
+                if (token > 0 && token <= n * n * n) {
+                    int x = (token - 1) / (n * n);
+                    int y = (token - 1) / n % n;
+
+                    if (x == row && y == col && !visited[x][y]) {
+                        visited[x][y] = true;
+                    }
+                }
+            }
+        }
+    }
+
 }
