@@ -35,4 +35,8 @@ public class Map {
         }
         return unvisitedCells;
     }
+
+    public int[][] getMap() {
+        return this.map;
+    }
 }

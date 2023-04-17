@@ -1,10 +1,6 @@
 package compulsory;
 import java.util.List;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 
-import java.util.List;
-import java.util.ArrayList;
 
 public class Supervisor {
     private List<Robot> robots;
@@ -31,7 +27,7 @@ public class Supervisor {
 
     private void start(Robot robot) {
         Thread thread = new Thread(() -> {
-            while (!isDone()) {
+            while (!isDonee()) {
                 synchronized (robot) {
                     robot.move();
                     int row = robot.getCurrentRow();
@@ -44,14 +40,12 @@ public class Supervisor {
                 }
             }
         });
+        robot.setThread(thread);
         thread.start();
     }
 
-    private void pause(Robot robot) {
-        // To be implemented
-    }
 
-    private boolean isDone() {
+    private boolean isDonee() {
         for (Robot robot : robots) {
             if (!robot.isDone()) {
                 return false;
@@ -59,4 +53,13 @@ public class Supervisor {
         }
         return true;
     }
+    private void pause(Robot robot) {
+        Thread robotThread = robot.getThread();
+        if (robotThread != null && robotThread.isAlive()) {
+            robotThread.interrupt();
+            System.out.println(robot.getName() + " paused");
+        }
+        //TODO;
+    }
+
 }

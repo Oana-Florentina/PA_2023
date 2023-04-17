@@ -13,7 +13,14 @@ public class Robot implements Runnable {
     private int currentCol;
     private List<Integer> tokens;
     private Random rand;
+    private Thread thread;
 
+    public Thread getThread() {
+        return thread;
+    }
+    public void setThread(Thread thread) {
+        this.thread = thread;
+    }
     public Robot(String name, int id, int[][] map, boolean[][] visited, int n, int[][] sharedMemory) {
         this.name = name;
         this.id = id;
@@ -49,10 +56,10 @@ public class Robot implements Runnable {
     }
 
     public boolean isDone() {
-        // Check if all cells have been visited
+        // Check if all cells have been visited and all tokens have been extracted
         for (int row = 0; row < map.length; row++) {
             for (int col = 0; col < map[0].length; col++) {
-                if (!visited[row][col]) {
+                if (!visited[row][col] || map[row][col] != 0) {
                     return false;
                 }
             }
@@ -73,7 +80,7 @@ public class Robot implements Runnable {
         if (newRow >= 0 && newRow < map.length && newCol >= 0 && newCol < map[0].length && !visited[newRow][newCol]) {
             currentRow = newRow;
             currentCol = newCol;
-            System.out.println(name + " visited cell [" + currentRow + ", " + currentCol + "]");
+           // System.out.println(name + " visited cell [" + currentRow + ", " + currentCol + "]");
         }
     }
 
