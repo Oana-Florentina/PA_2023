@@ -3,7 +3,7 @@ package Homework;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Company implements Comparable<Company>, Node {
+public class Company implements  Node {
     private String name;
     private Map<Node, String> relationships = new HashMap<>();
     public Company(String name) {
@@ -20,10 +20,6 @@ public class Company implements Comparable<Company>, Node {
         this.name = name;
     }
 
-    @Override
-    public int compareTo(Company other) {
-        return this.name.compareTo(other.getName());
-    }
 
     @Override
     public String toString() {
