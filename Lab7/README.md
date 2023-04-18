@@ -25,7 +25,7 @@ A message will be displayed on the screen every time a robot visits a new cell.
 Pay attention to the synchronization of the threads when extracting tokens and when visiting cells.
 
 ✅ 
-## Homework
+## Compulsory
 [ ]Implement the commands that start/pause the robots (all of them or only a specific one). A robot can be paused for a specific time or indefinitely, requiring a start command.
 The commands must be given using the keyboard.
 
