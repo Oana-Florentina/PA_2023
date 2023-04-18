@@ -50,7 +50,7 @@ public class Supervisor {
                     if (!map.isVisited(row, col)) {
                         map.markVisited(row, col);
                        System.out.println(robot.getName() + " visited cell (" + row + ", " + col + ")");
-                        robot.extractTokens();
+                        robot.extractTokens(sharedMemory);
 
                         try {
                             Thread.sleep(1000);

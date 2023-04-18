@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         // Initialize parameters
         int n = 3;  // Map size
-        int numRobots = 3;  // Number of robots
+        int numRobots = 1;  // Number of robots
         int numTokens = n;  // Number of tokens per robot
 
         // Create shared memory
@@ -25,7 +25,7 @@ public class Main {
         // Create robots
         List<Robot> robots = new ArrayList<>();
         for (int i = 0; i < numRobots; i++) {
-            Robot robot = new Robot("Robot" + (i+1), i+1, map.getMap(), visited, n, sharedMemory);
+            Robot robot = new Robot("Robot" + (i+1), i+1, map.getMap(), visited, n,sharedMemory);
             robots.add(robot);
         }
 

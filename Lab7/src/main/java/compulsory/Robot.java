@@ -9,6 +9,7 @@ import java.util.Random;
  */
 public class Robot implements Runnable {
     private String name;
+    private boolean running;
     int n;
     private int id;
     private int[][] map;
@@ -18,7 +19,7 @@ public class Robot implements Runnable {
     private List<Integer> tokens;
     private Random rand;
     private Thread thread;
-
+    int [][]sharedMemory;
     public Thread getThread() {
         return thread;
     }
@@ -32,37 +33,29 @@ public class Robot implements Runnable {
      * @param map The layout of the grid.
      * @param visited The 2D array keeping track of which cells have been visited.
      * @param n The size of the grid.
-     * @param sharedMemory The shared memory containing the tokens.
      */
-    public Robot(String name, int id, int[][] map, boolean[][] visited, int n, int[][] sharedMemory) {
+    public Robot(String name, int id, int[][] map, boolean[][] visited, int n,int [][]sharedMemory) {
         this.name = name;
         this.id = id;
         this.map = map;
         this.visited = visited;
         this.tokens = new ArrayList<>();
         this.n=n;
+        this.sharedMemory=sharedMemory;
         this.rand = new Random();
         // Randomly initialize starting position
         this.currentRow = rand.nextInt(n);
         this.currentCol = rand.nextInt(n);
         // Extract n tokens from shared memory and store them in the robot's token list
-        int numTokens = n*n;
-        while (numTokens > 0) {
-            int tokenIndex = rand.nextInt(n*n);
-            int tokenValue = sharedMemory[tokenIndex / n][tokenIndex % n];
-            if (!tokens.contains(tokenValue)) {
-                tokens.add(tokenValue);
-                numTokens--;
-            }
-        }
+
     }
 
     @Override
     public void run() {
-        while (!isDone()) {
+        while (running) {
             move();
             if (!isDone()) {
-                extractTokens();
+                extractTokens(sharedMemory);
                 try {
                     Thread.sleep(1000);
                 } catch (InterruptedException e) {
@@ -83,8 +76,6 @@ public class Robot implements Runnable {
                 }
             }
         }
-
-
 
         return true;
     }
@@ -113,10 +104,18 @@ public class Robot implements Runnable {
      * updates the state of the map and visited cells by extracting tokens
      * from shared memory and storing them in the current position of the robot.
      */
-    public void extractTokens() {
+    public void extractTokens(int[][] sharedMemory) {
         // Extract n tokens from shared memory and store them in the current position on the map
         int numTokens = n;
 
+        while (numTokens > 0) {
+            int tokenIndex = rand.nextInt(n);
+            int tokenValue = sharedMemory[tokenIndex / n][tokenIndex % n];
+            if (!tokens.contains(tokenValue)) {
+                tokens.add(tokenValue);
+                numTokens--;
+            }
+        }
         for (int i = 0; i < numTokens; i++) {
             int tokenValue = tokens.remove(0);
             synchronized (map) {
