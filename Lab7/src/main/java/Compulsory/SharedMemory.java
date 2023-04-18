@@ -1,4 +1,4 @@
-package Homework;
+package Compulsory;
 
 import java.util.ArrayList;
 import java.util.List;

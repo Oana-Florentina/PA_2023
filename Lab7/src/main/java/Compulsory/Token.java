@@ -1,4 +1,4 @@
-package Homework;
+package Compulsory;
 
 public class Token {
     private final int number;

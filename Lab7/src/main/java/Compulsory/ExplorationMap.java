@@ -1,6 +1,5 @@
-package Homework;
+package Compulsory;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 public class ExplorationMap {
     private final List<Token>[][] matrix;
