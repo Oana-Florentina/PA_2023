@@ -23,7 +23,7 @@ public class ExplorationMap {
             if (matrix[row][col].isEmpty()) {
                 matrix[row][col].addAll(robot.extractTokens());
                 filledCells++;
-                System.out.println(robot.getName() + " explored cell [" + row + "][" + col + "] and found tokens " + matrix[row][col]);
+                System.out.println(robot.getName() + " explored cell [" + row + "][" + col + "] and stored tokens " + matrix[row][col]);
                 if (filledCells == matrix.length * matrix[0].length) {
                     System.out.println("Map completed!");
                 }

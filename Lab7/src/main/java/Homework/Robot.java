@@ -1,5 +1,7 @@
 package Homework;
+
 import java.util.List;
+
 public class Robot implements Runnable {
     private final String name;
     private final SharedMemory mem;
@@ -7,6 +9,7 @@ public class Robot implements Runnable {
     private final int numTokensToExtract;
     private volatile boolean isRunning;
     private volatile boolean isPaused;
+
     public Robot(String name, SharedMemory mem, ExplorationMap map, int numTokensToExtract) {
         this.name = name;
         this.mem = mem;
@@ -14,6 +17,7 @@ public class Robot implements Runnable {
         this.numTokensToExtract = numTokensToExtract;
         this.isPaused = false;
     }
+
     public void setRunning(boolean isRunning) {
         this.isRunning = isRunning;
     }
@@ -25,6 +29,7 @@ public class Robot implements Runnable {
     public List<Token> extractTokens() {
         return mem.extractTokens(numTokensToExtract);
     }
+
     public void pause() {
         this.isPaused = true;
     }
