@@ -26,7 +26,7 @@ Pay attention to the synchronization of the threads when extracting tokens and w
 
 ✅ 
 ## Compulsory
-[ ]Implement the commands that start/pause the robots (all of them or only a specific one). A robot can be paused for a specific time or indefinitely, requiring a start command.
+[✅]Implement the commands that start/pause the robots (all of them or only a specific one). A robot can be paused for a specific time or indefinitely, requiring a start command.
 The commands must be given using the keyboard.
 
 [ ]Design an algorithm such that each robots will try to explore the map in a systematic fashion, ensuring the termination of the exploration process.
