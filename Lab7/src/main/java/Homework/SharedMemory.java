@@ -1,7 +1,10 @@
-package Compulsory;
+package Homework;
+
+
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
-import java.util.*;
 
 public class SharedMemory {
     private final List<Token> tokens;
