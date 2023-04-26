@@ -37,15 +37,18 @@ public class ExplorationController {
                 exploration.stopRobots();
                 timekeeper.stop();
                 System.out.println("Exploration time: " + timekeeper.getElapsedTime() / 1000 + " seconds");
+                for(Robot robot: exploration.getRobots())
+                   System.out.println(robot.getName() + " has placed "+  robot.getNumTokensPlaced() + " tokens in the matrix") ;
                 System.exit(0);
             }
         }
     }
 
     public static void main(String[] args) {
-        Exploration exploration = new Exploration(5, 3, 30000);
+        Exploration exploration = new Exploration(4, 3, 30000);
         Timekeeper timekeeper = new Timekeeper(30000, exploration);
         ExplorationController controller = new ExplorationController(exploration, timekeeper);
         controller.start();
+
     }
 }

@@ -31,7 +31,7 @@ The commands must be given using the keyboard.
 
 [✅]Design an algorithm such that each robots will try to explore the map in a systematic fashion, ensuring the termination of the exploration process.
 
-[ ]Implement a timekeeper thread that runs concurrently with the player threads, as a daemon. This thread will display the running time of the exploration and it will stop it exceeds a certain time limit.
+[✅]Implement a timekeeper thread that runs concurrently with the player threads, as a daemon. This thread will display the running time of the exploration and it will stop it exceeds a certain time limit.
 
 [ ]At the end of the exploration, determine how many tokens each robot has placed in the matrix.
 

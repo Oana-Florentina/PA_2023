@@ -9,6 +9,7 @@ public class Robot implements Runnable {
     private final int numTokensToExtract;
     private volatile boolean isRunning;
     private volatile boolean isPaused;
+    private int numTokensPlaced;
 
     public Robot(String name, SharedMemory mem, ExplorationMap map, int numTokensToExtract) {
         this.name = name;
@@ -40,6 +41,9 @@ public class Robot implements Runnable {
             notifyAll();
         }
     }
+    public int getNumTokensPlaced() {
+        return numTokensPlaced;
+    }
 
     @Override
     public void run() {
@@ -58,6 +62,7 @@ public class Robot implements Runnable {
             int row = (int) (Math.random() * n);
             int col = (int) (Math.random() * n);
             if (map.visit(row, col, this)) {
+                numTokensPlaced+=n;
                 try {
                     Thread.sleep(2000);
                 } catch (InterruptedException e) {
@@ -75,5 +80,4 @@ public class Robot implements Runnable {
             }
         }
     }
-
 }
