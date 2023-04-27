@@ -1,14 +1,39 @@
 package Homework;
+
 import java.util.ArrayList;
 import java.util.List;
+
+/**
+ * Exploration class represents a simulation of multiple robots exploring a shared memory area.
+ * The exploration is limited by a time limit specified in the constructor.
+ * The Exploration class provides methods to start, pause, resume and stop the robots.
+ */
 public class Exploration {
+    /**
+     * The shared memory used by the robots for communication.
+     */
     private final SharedMemory mem;
+    /**
+     * The map representing the area to explore.
+     */
     private final ExplorationMap map;
+    /**
+     * The list of robots participating in the exploration.
+     */
     private final List<Robot> robots;
-    private volatile boolean isRunning;
+    /**
+     * The timekeeper used to limit the duration of the exploration.
+     */
     private final Timekeeper timekeeper;
 
-    public Exploration(int n, int numRobots,long timeLimit) {
+    /**
+     * Constructs an Exploration object with the specified parameters.
+     *
+     * @param n         the size of the shared memory and exploration map
+     * @param numRobots the number of robots participating in the exploration
+     * @param timeLimit the time limit for the exploration in milliseconds
+     */
+    public Exploration(int n, int numRobots, long timeLimit) {
         this.mem = new SharedMemory(n);
         this.map = new ExplorationMap(n);
         this.robots = new ArrayList<>(numRobots);
@@ -20,6 +45,10 @@ public class Exploration {
         timekeeperThread.setDaemon(true);
         timekeeperThread.start();
     }
+
+    /**
+     * Starts all the robots participating in the exploration.
+     */
     public void startRobots() {
         for (Robot robot : robots) {
             new Thread(robot).start();
@@ -27,12 +56,18 @@ public class Exploration {
         }
     }
 
+    /**
+     * Pauses all the robots participating in the exploration.
+     */
     public void pauseRobots() {
         for (Robot robot : robots) {
             robot.setRunning(false);
         }
     }
 
+    /**
+     * Resumes all the robots participating in the exploration.
+     */
     public void resumeRobots() {
         for (Robot robot : robots) {
             robot.setRunning(true);
@@ -41,6 +76,10 @@ public class Exploration {
             }
         }
     }
+
+    /**
+     * Stops all the robots participating in the exploration.
+     */
     public void stopRobots() {
         for (Robot robot : robots) {
             robot.setRunning(false);
@@ -50,12 +89,7 @@ public class Exploration {
         }
     }
 
-
-    public boolean isRunning() {
-        return isRunning;
-    }
     public List<Robot> getRobots() {
         return this.robots;
     }
-
 }
