@@ -17,6 +17,9 @@ public class ExplorationMap {
 
     public boolean visit(int row, int col, Robot robot) {
         synchronized (matrix[row][col]) {
+            if( !(filledCells == matrix.length * matrix[0].length))
+                System.out.println(robot.getName() + " visited cell [" + row + "][" + col + "] ");
+
             if (matrix[row][col].isEmpty()) {
                 matrix[row][col].addAll(robot.extractTokens());
                 filledCells++;
