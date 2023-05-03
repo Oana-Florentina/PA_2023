@@ -6,25 +6,19 @@ import java.sql.SQLException;
 
 public class TestDAO {
     public static void main(String[] args) {
-        try (Connection connection = DriverManager.getConnection(
-                "jdbc:postgresql://localhost:5432/albums",
+    try {
+        Connection connection = DriverManager.getConnection(
+                "jdbc:postgresql://localhost:5432/db",
                 "postgres",
-                "password")) {
+                "student");
+        var artists = new ArtistDAO(connection);
+        artists.create("Pink Floyd");
+        artists.create("Michael Jackson");
 
-            // create a new artist
-            ArtistDAO artistDAO = new ArtistDAO(connection);
-            artistDAO.create("The Beatles");
-
-            // retrieve the artist by name
-            Integer id = artistDAO.findByName("The Beatles");
-            System.out.println("Artist found with id: " + id);
-
-            // retrieve the artist by id
-            String name = artistDAO.findById(id);
-            System.out.println("Artist found with name: " + name);
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Database.getConnection().close();
+    } catch (SQLException e) {
+        System.err.println(e);
+       // Database.rollback();
     }
+}
 }
