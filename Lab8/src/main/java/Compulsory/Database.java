@@ -10,8 +10,11 @@ public class Database {
 
     private Database() {}
 
-    public static Connection getConnection() {
+    public static Connection getConnection() throws SQLException{
         if (connection == null) {
+            createConnection();
+        }
+        else if (connection.isClosed()) {
             createConnection();
         }
         return connection;
