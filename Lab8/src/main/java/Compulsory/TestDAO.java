@@ -36,7 +36,7 @@ public class TestDAO {
                 System.out.println(artists.findByName("Pink Floyd"));
                 System.out.println(genres.findById(1));
                 System.out.println(genres.findByName("Rock"));
-                System.out.println("buna siua");
+
             }
 
             try (Connection connection = Database.getConnection()) {

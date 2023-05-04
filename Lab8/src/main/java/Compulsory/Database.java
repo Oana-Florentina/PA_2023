@@ -39,6 +39,9 @@ public class Database {
             System.err.println(e);
         }
     }
+    /**
+     * Rolls back any pending transactions on the current connection.
+     */
     public static void rollback() {
         try {
             Connection connection = getConnection();

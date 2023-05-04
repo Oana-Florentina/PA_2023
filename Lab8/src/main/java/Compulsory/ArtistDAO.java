@@ -96,7 +96,6 @@ public class ArtistDAO extends GenericDAO<Artist> {
                 }
             }
         }
-
         return null;
     }
 }
