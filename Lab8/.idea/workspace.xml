@@ -5,14 +5,89 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="05ff2ddb-d151-4e58-96b8-8b58679cbbe4" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Bonus/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Bonus/Playlist.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Bonus/PlaylistDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9 (1)/Lab9/Laborator9/Laborator9.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/Lab-9.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/discord.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/0/4/04532469b8033a307146ebf4691ce8ec356edd41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/3/8/38e83f16f09121995544d2631d05c58429ff33fc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/4/6/463440709e04723406f55800ddefc793666f37a7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/4/9/49e6946d9172b04659adb994a033807bde76d9f5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/4/d/4dcb436bf34aa0654771ffceb2f72e4462e26585" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/9/9/99976280806fa1f9333dad1cd8ac6531d7fa9d1f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/b/b/bb246097fa9bed1a9397016ea98ff60831a3b2ad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/c/4/c4df084d95358c6d554616a33ed271d3efbe45e4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/d/a/dab632e676b21b3e13a678646805ded02981e17a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/d/d/ddc0b598309b962b8f86e3290b0c168a7f4a09d8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/e/7/e781dc7f0f39b72fd79ee90d0b041b596c10ce6a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/f/3/f3cb6b4d09110ee9574f512f81ded26ef47bff40" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/issuestore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/0/4/04532469b8033a307146ebf4691ce8ec356edd41" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/3/8/38e83f16f09121995544d2631d05c58429ff33fc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/4/4/442292b8a7efeabbe4cc176709b833b1792140ec" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/4/6/463440709e04723406f55800ddefc793666f37a7" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/4/9/49e6946d9172b04659adb994a033807bde76d9f5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/4/d/4dcb436bf34aa0654771ffceb2f72e4462e26585" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/9/9/99976280806fa1f9333dad1cd8ac6531d7fa9d1f" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/b/b/bb246097fa9bed1a9397016ea98ff60831a3b2ad" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/c/4/c4df084d95358c6d554616a33ed271d3efbe45e4" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/d/a/dab632e676b21b3e13a678646805ded02981e17a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/d/d/ddc0b598309b962b8f86e3290b0c168a7f4a09d8" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/e/7/e781dc7f0f39b72fd79ee90d0b041b596c10ce6a" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/f/3/f3cb6b4d09110ee9574f512f81ded26ef47bff40" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/sonarlint/securityhotspotstore/index.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/Laborator9.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/result.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/Repositories/AlbumRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/Repositories/ArtistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/Repositories/GenreRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/Repositories/PlaylistRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/Repositories/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/Album.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/Artist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/Genre.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/GenreAlbum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/IEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/Playlist.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/datatypes/PlaylistAlbum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/factory/EntityManagerHibernate.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/java/org/entrypoint/Main.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/main/resources/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/src/test/java/TestRepositories.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/Repositories/AlbumRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/Repositories/ArtistRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/Repositories/GenreRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/Repositories/PlaylistRepository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/Repositories/Repository.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/Album.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/Artist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/Genre.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/GenreAlbum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/IEntity.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/Playlist.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/datatypes/PlaylistAlbum.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/factory/EntityManagerHibernate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/hibernate.cfg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/classes/org/entrypoint/Main.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Lab9/Lab9/Laborator9/target/test-classes/TestRepositories.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Compulsory/ArtistDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Compulsory/ArtistDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Compulsory/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Compulsory/Database.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Compulsory/TestDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Compulsory/TestDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Bonus/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Bonus/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,11 +118,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/florentina/Desktop/Facultate/Java/PA_2023/Lab8/tables.sql",
+    "last_opened_file_path": "/home/florentina/Desktop/Facultate/Java/PA_2023/Lab9 (1)",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -56,6 +132,7 @@
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
+      "mysql",
       "postgresql"
     ]
   }
@@ -65,7 +142,20 @@
       <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.TestDAO">
+  <component name="RunManager" selected="Application.Bonus.Main">
+    <configuration name="Bonus.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Bonus.Main" />
+      <module name="Lab8" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Bonus.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Homework.Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Homework.Main" />
       <module name="Lab8" />
@@ -111,14 +201,6 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <configuration name="docker-compose.yml.db: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -134,11 +216,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Bonus.Main" />
+        <item itemvalue="Application.Homework.Main" />
         <item itemvalue="Application.TestDAO" />
         <item itemvalue="Docker.docker-compose.yml.db: Compose Deployment" />
-        <item itemvalue="Application.Homework.Main" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
     </recent_temporary>
   </component>
@@ -152,7 +234,10 @@
       <updated>1682703631111</updated>
       <workItem from="1683194849730" duration="1132000" />
       <workItem from="1683196048179" duration="11000" />
-      <workItem from="1683223843207" duration="1469000" />
+      <workItem from="1683223843207" duration="2343000" />
+      <workItem from="1683262712403" duration="3846000" />
+      <workItem from="1683742615334" duration="42000" />
+      <workItem from="1683743460521" duration="783000" />
     </task>
     <servers />
   </component>

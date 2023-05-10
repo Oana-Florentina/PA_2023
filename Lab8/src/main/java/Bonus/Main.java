@@ -40,7 +40,7 @@ public class Main {
             connection.commit();
 
             // Create a new playlist and add the album to it
-            Playlist playlist1 = new Playlist("Playlist manele");
+            Playlist playlist1 = new Playlist("Playlist Colinde");
             playlist1.addAlbum(album1);
             playlist1.addAlbum(album2);
 
