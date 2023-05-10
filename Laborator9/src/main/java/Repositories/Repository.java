@@ -3,7 +3,6 @@ package Repositories;
 import factory.EntityManagerHibernate;
 import java.util.List;
 import java.io.Serializable;
-
 public abstract class Repository  <T, ID extends Serializable> {
     protected EntityManagerHibernate session;
     public Repository() throws Exception {
