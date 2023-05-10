@@ -24,7 +24,9 @@ Verify the presence of the persistence.xml file in your project. Make sure that 
 create - receives an entity and saves it into the database;
 
    [✅]findById - returns an entity based on its primary key;
+   
    [✅]findByName - returns a list of entities that match a given name pattern. Use a named query in order to implement this method.
+   
    [✅]Test your application.
 
 ✅ 
