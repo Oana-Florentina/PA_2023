@@ -1,6 +1,7 @@
 package datatypes;
 
 import jakarta.persistence.*;
+
 import java.util.*;
 import java.time.LocalDate;
 
@@ -10,7 +11,7 @@ import java.time.LocalDate;
 @NamedQuery(name = "Playlist.findById", query = "select e from Playlist e where e.id=?1")
 @NamedQuery(name = "Playlist.deleteById", query = "delete from Playlist e where e.id=?1")
 @NamedQuery(name = "Playlist.deleteAll", query = "delete from Playlist")
-public class Playlist implements IEntity{
+public class Playlist implements IEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,15 +41,16 @@ public class Playlist implements IEntity{
                 '}';
     }
 
-    public Playlist()
-    {
+    public Playlist() {
 
     }
-    public Playlist(String name, LocalDate creationDate,  Set<Album> playlistAlbums) {
+
+    public Playlist(String name, LocalDate creationDate, Set<Album> playlistAlbums) {
         this.name = name;
         this.creationDate = creationDate;
         this.albums = playlistAlbums;
     }
+
     public long getId() {
         return id;
     }

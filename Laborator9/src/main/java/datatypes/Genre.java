@@ -3,27 +3,27 @@ package datatypes;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name="genres")
-@NamedQuery(name ="Genre.findAll", query = "select e from Genre e order by e.name")
-@NamedQuery(name ="Genre.findById", query = "select e from Genre e where e.id=?1")
-@NamedQuery(name ="Genre.deleteById", query = "delete from Genre e where e.id=?1")
-@NamedQuery(name ="Genre.deleteAll", query = "delete from Genre")
+@Table(name = "genres")
+@NamedQuery(name = "Genre.findAll", query = "select e from Genre e order by e.name")
+@NamedQuery(name = "Genre.findById", query = "select e from Genre e where e.id=?1")
+@NamedQuery(name = "Genre.deleteById", query = "delete from Genre e where e.id=?1")
+@NamedQuery(name = "Genre.deleteAll", query = "delete from Genre")
 
 public class Genre implements IEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     private int id;
-    @Column(name="name")
+    @Column(name = "name")
     private String name;
-    public Genre()
-    {
+
+    public Genre() {
 
     }
-    public Genre(String name)
-    {
-    this.name=name;
+
+    public Genre(String name) {
+        this.name = name;
     }
 
     public int getId() {

@@ -10,12 +10,12 @@ public class PlaylistRepository extends Repository<Playlist, Integer> {
     private EntityManagerHibernate session;
 
     public PlaylistRepository() throws Exception {
-        this.session=new EntityManagerHibernate();
+        this.session = new EntityManagerHibernate();
     }
 
     @Override
     public Playlist findById(Integer integer) {
-        return (Playlist)session.getEntityManager().createNamedQuery("Playlist.findById").setParameter(1, integer).
+        return (Playlist) session.getEntityManager().createNamedQuery("Playlist.findById").setParameter(1, integer).
                 getSingleResult();
     }
 
@@ -52,7 +52,7 @@ public class PlaylistRepository extends Repository<Playlist, Integer> {
     public void saveAll(List<Playlist> entities) {
         EntityManager currentSession = session.getEntityManager();
         currentSession.getTransaction().begin();
-        for(var obj:entities) {
+        for (var obj : entities) {
             currentSession.persist(obj);
         }
         currentSession.getTransaction().commit();

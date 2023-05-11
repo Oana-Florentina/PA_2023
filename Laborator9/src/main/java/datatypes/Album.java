@@ -1,24 +1,31 @@
 package datatypes;
 
 import jakarta.persistence.*;
+
 import java.time.LocalDate;
 import java.util.Set;
 
+/**
+ * The Album class represents an album entity that can be stored and retrieved from a database.
+ * It has fields for the release date, title, artist, and genres of the album.
+ */
 @Entity
-@Table(name="albums")
-@NamedQuery(name ="Album.findAll", query = "select e from Album e order by e.title")
-@NamedQuery(name ="Album.findById", query = "select e from Album e where e.id=?1")
-@NamedQuery(name ="Album.deleteById", query = "delete from Album e where e.id=?1")
-@NamedQuery(name ="Album.deleteAll", query = "delete from Album")
+@Table(name = "albums")
+@NamedQuery(name = "Album.findAll", query = "select e from Album e order by e.title")
+@NamedQuery(name = "Album.findById", query = "select e from Album e where e.id=?1")
+@NamedQuery(name = "Album.deleteById", query = "delete from Album e where e.id=?1")
+@NamedQuery(name = "Album.deleteAll", query = "delete from Album")
 public class Album implements IEntity {
-
+    /**
+     * The unique identifier of the album.
+     */
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name="id")
+    @Column(name = "id")
     int id;
-    @Column(name="release_date")
+    @Column(name = "release_date")
     private LocalDate releaseDate;
-    @Column(name="title")
+    @Column(name = "title")
     private String title;
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "artists")
@@ -30,9 +37,18 @@ public class Album implements IEntity {
             inverseJoinColumns = @JoinColumn(name = "id_genre")
     )
     private Set<Genre> genres;
+
     public Album() {
     }
 
+    /**
+     * Creates an Album object with the given release date, title, artist, and genres.
+     *
+     * @param releaseDate the release date of the album
+     * @param title       the title of the album
+     * @param artist      the artist who created the album
+     * @param genres      the set of genres associated with the album
+     */
     public Album(LocalDate releaseDate, String title, Artist artist, Set<Genre> genres) {
         this.releaseDate = releaseDate;
         this.title = title;
@@ -71,6 +87,7 @@ public class Album implements IEntity {
     public void setArtist(Artist artist) {
         this.artist = artist;
     }
+
     public Set<Genre> getGenres() {
         return genres;
     }

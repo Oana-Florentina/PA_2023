@@ -9,13 +9,24 @@ import java.util.List;
 public class ArtistRepository extends Repository<Artist, Integer> {
     private EntityManagerHibernate session;
 
+    /**
+     * Constructs a new AlbumRepository instance and initializes its EntityManagerHibernate instance.
+     *
+     * @throws Exception if there's an error creating the EntityManagerHibernate.
+     */
     public ArtistRepository() throws Exception {
-        this.session=new EntityManagerHibernate();
+        this.session = new EntityManagerHibernate();
     }
 
+    /**
+     * Finds an Album entity by ID.
+     *
+     * @param integer the ID of the entity to find.
+     * @return the found Album entity, or null if not found.
+     */
     @Override
     public Artist findById(Integer integer) {
-        return (Artist)session.getEntityManager().createNamedQuery("Artist.findById").setParameter(1, integer).getSingleResult();
+        return (Artist) session.getEntityManager().createNamedQuery("Artist.findById").setParameter(1, integer).getSingleResult();
 
     }
 
@@ -52,7 +63,7 @@ public class ArtistRepository extends Repository<Artist, Integer> {
     public void saveAll(List<Artist> entities) {
         EntityManager currentSession = session.getEntityManager();
         currentSession.getTransaction().begin();
-        for(var obj:entities) {
+        for (var obj : entities) {
             currentSession.persist(obj);
         }
         currentSession.getTransaction().commit();

@@ -9,11 +9,12 @@ import java.util.List;
 public class GenreRepository extends Repository<Genre, Integer> {
 
     public GenreRepository() throws Exception {
-        this.session=new EntityManagerHibernate();
+        this.session = new EntityManagerHibernate();
     }
+
     @Override
     public Genre findById(Integer integer) {
-        return (Genre)session.getEntityManager().createNamedQuery("Genre.findById").setParameter(1, integer).getSingleResult();
+        return (Genre) session.getEntityManager().createNamedQuery("Genre.findById").setParameter(1, integer).getSingleResult();
 
     }
 
@@ -51,7 +52,7 @@ public class GenreRepository extends Repository<Genre, Integer> {
     public void saveAll(List<Genre> entities) {
         EntityManager currentSession = session.getEntityManager();
         currentSession.getTransaction().begin();
-        for(var obj:entities) {
+        for (var obj : entities) {
             currentSession.persist(obj);
         }
         currentSession.getTransaction().commit();
